@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>cartoonAnimation</title>
+	<link rel="stylesheet" type="text/css" href="./style/man.css">
+	<link rel="stylesheet" type="text/css" href="./style/road.css">
+	<style type="text/css">
+	.box2 {
+        position: absolute;
+/*		right:-114px;
+		top:47px;*/
+		right:70%;
+		top:186px;
+		opacity: 0;
+        z-index: 4;
+        animation: 20s enterCar linear 1;
+        /*animation: 3s enterPic linear 1;*/
+    }
+    /* 进场动画 */
+@-webkit-keyframes enterCar {
+	0% {
+		right:-114px;
+		top:47px;
+		transform: scale(0.5);
+		opacity: 0;
+	}
+	20% {
+		right:258px;
+		top:130px;
+		opacity: 1;
+		transform: scale(0.35);
+	}
+	60% {
+		right:70%;
+		top:130px;
+	}
+    65% {
+    	top:186px;
+    	right:70%;
+    	opacity: 1;
+    	transform: scale(0.35);
+    }
+    70% {
+    	top:186px;
+    	right:70%;
+    	opacity: 1;
+    	transform: scale(0.35);
+    }
+	100%{
+		opacity: 0;
+		transform: scale(0.01);
+		top:180px;
+    	right:70%;
+	}
+}
+	</style>
+</head>
+<body>
+	
+	<!-- 场景容器 -->
+	<div class="container">
+		<!-- 山 -->
+		<div class="mountain">
+			<div class="part_one"></div>
+			<div class="part_two"></div>
+			<div class="part_three"></div>
+			<div class="part_four"></div>
+		</div>
+		<!-- 道路 -->
+		<div class="load"></div>
+		<!-- 石头 -->
+		<div class="stone"></div>
+		<!-- 太阳 -->
+		<div class="sun">
+			<div class="sunshine"></div>
+			<div class="center_sun"></div>
+		</div>
+		<!-- 云朵 -->
+		<div class="cloud"></div>
+		<!-- 房子 -->
+		<div class="house">
+			
+			<!-- 墙面 -->
+			<div class="wall"></div>
+			<!-- 房顶 -->
+			<div class="roof"></div>
+			<!-- 二楼 -->
+			<div class="secondFloor">
+				<!-- 窗户 -->
+				<div class="window w1">
+					<!-- 窗户帐篷 -->
+					<div class="window_tent"></div>
+					<!-- 窗体 -->
+					<div class="window_body"></div>
+				</div>
+				<div class="window w2">
+					<!-- 窗户帐篷 -->
+					<div class="window_tent"></div>
+					<!-- 窗体 -->
+					<div class="window_body"></div>
+				</div>
+				<div class="window w3">
+					<!-- 窗户帐篷 -->
+					<div class="window_tent"></div>
+					<!-- 窗体 -->
+					<div class="window_body"></div>
+				</div>
+				<div class="window w4">
+					<!-- 窗户帐篷 -->
+					<div class="window_tent"></div>
+					<!-- 窗体 -->
+					<div class="window_body"></div>
+				</div>
+			</div>
+			<div class="firstFloor">
+				<!-- 窗户 -->
+				<div class="window f-w1">
+					<!-- 窗户帐篷 -->
+					<div class="window_tent"></div>
+					<!-- 窗体 -->
+					<div class="window_body"></div>
+				</div>
+				<div class="window f-w2">
+					<!-- 窗户帐篷 -->
+					<div class="window_tent"></div>
+					<!-- 窗体 -->
+					<div class="window_body"></div>
+				</div>
+				<!-- 门 -->
+				<div class="door">
+					<!-- 门梁 -->
+					<div class="door_over"></div>
+					<!-- 门主体 -->
+					<div class="door_body">
+						<div class="leftDoor"></div>
+						<div class="rightDoor"></div>
+					</div>
+				</div>
+				<div class="window f-w3">
+					<!-- 窗户帐篷 -->
+					<div class="window_tent"></div>
+					<!-- 窗体 -->
+					<div class="window_body"></div>
+				</div>
+			</div>
+		</div>
+		<!-- 树 -->
+		<div class="trees">
+			<div class="leftTree"><span></span></div>
+			<div class="leftTree l2"><span></span></div>
+			<div class="rightTree"><span></span></div>
+			<div class="rightTree r2"><span></span></div>
+		</div>
+		<!-- 第一辆汽车 -->
+		<div class="car">
+			<div class="car_body">
+				<div class="car_top1"></div>
+				<div class="car_top2"></div>
+				<div class="car_win1"></div>
+				<div class="car_win2"></div>
+				<div class="car_bottom1"></div>
+				<div class="car_bottom2"></div>
+			</div>
+			<div class="frontWheel"></div>
+			<div class="endWheel"></div>
+			<div class="exhaust"></div>
+		</div>
+		<!-- 第二辆车（浅绿色） -->
+		<div class="car2">
+			<div class="car2_top"></div>
+			<div class="car2_win"></div>
+			<div class="car2_bottom">
+				<div class="car2_light1"></div>
+				<div class="car2_light2"></div>
+				<div class="car2_light3"></div>
+			</div>
+			<div class="car2_frontWheel"></div>
+			<div class="car2_endWheel"></div>
+		</div>
+	</div>
+      <div class="box2">
+            <div class="wrapper"><!-- 容器 -->
+        <div class="littleH"><!-- 小黄人 -->
+            <div class="top-canvas"><canvas></canvas></div>
+            <div class="bodyH"><!-- 身体 -->
+            </div>
+            <div class="hair"><!-- 头发 -->
+                <div class="left_hair_one"><div></div></div>
+                <div class="left_hair_two"><div></div></div>
+            </div>
+            <div class="eyes"><!-- 眼睛 -->
+                <div class="leftEye"><!-- 左眼 -->
+                    <div class="left_blackEye">
+                        <div class="left_white"></div>
+                    </div>
+                </div>
+                <div class="rightEye"><!-- 右眼 -->
+                    <div class="right_blackEye">
+                        <div class="right_white"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mouse"><!-- 嘴巴 -->
+                <div class="mouse_shape"></div>
+            </div>
+            <div class="hands"><!-- 双手 -->
+                <div class="leftHand"><div></div></div>
+                <div class="rightHand"><div></div></div>
+            </div>
+            <div class="feet"><!-- 双脚 -->
+                <div class="left_foot"></div>
+                <div class="right_foot"></div>
+            </div>
+            <div class="groundShadow"></div><!-- 脚底阴影 -->
+        </div>
+    </div>
+   </div>
+    <script type="text/javascript" src='./js/effect.js'></script>
+    <script type="text/javascript">
+    	effect.init(document.querySelector('canvas'));
+    	      document.onclick = function() {
+        document.onclick = null;
+        let box2 = document.querySelector('.box2');
+          window.location = './index.html';
+      }
+    </script>
+</body>
+</html>

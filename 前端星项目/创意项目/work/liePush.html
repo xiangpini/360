@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>卧推</title>
+<link rel="stylesheet" type="text/css" href="./style/liepush.css">
+<link rel="stylesheet" type="text/css" href="./style/man.css">
+
+  <style type="text/css">
+    .box2 {
+        position: absolute;
+        bottom: 63px;
+        left: 128px;
+        transform: scale(0.7);
+        animation: 3s enterMotion linear 1;
+    }
+    .leaveMotion { /* 点击的时候把这个类加到box2上 */
+        bottom: 63px;
+        left: 128px;
+        transform: scale(0.7);
+        animation: 3s leaveMotion linear 1;
+    }
+    /* 进场动画 */
+@-webkit-keyframes enterMotion {
+  0% {
+    bottom: 293px;
+    left: -208px;
+    transform: scale(0.7);
+  }
+  80% {
+    bottom: 63px;
+    left: 128px;
+    transform: scale(0.7);
+  }
+  90% {
+    bottom: 83px;
+    left: 128px;
+    transform: scale(0.7);
+  }
+  100% {
+    bottom: 63px;
+    left: 128px;
+    transform: scale(0.7);
+  }
+}
+@-webkit-keyframes leaveMotion {
+  0% {
+      bottom: 63px;
+      left: 128px;
+      transform: scale(0.7);
+  }
+  20% {
+      bottom: 148px;
+      left: 328px;
+      transform: scale(0.7);
+  }
+  40% {
+      bottom: 63px;
+      left: 528px;
+      transform: scale(0.7);
+  }
+    60% {
+      bottom: 148px;
+      left: 728px;
+      transform: scale(0.7);
+  }
+  80% {
+      bottom: 63px;
+      left: 928px;
+      transform: scale(0.7);
+  }
+  100% {
+      bottom: 148px;
+      left: 1128px;
+      transform: scale(0.7);
+  }
+}
+  </style>
+</head>
+
+<body>
+<!--<div class='ground'></div>-->
+<div class="box">
+<div class="bench">
+  <div class="support">
+    <div class="stand">
+      <div class="grd1">
+        <div class="dmbl1"></div>
+        <div class="dmbl2"></div>
+        <div class="dmbl3"></div>
+        <div class="dmbl4"></div>
+          <div class="dmbl5"></div>
+        <div class="dmbl6"></div>
+        <div class="dmbl7"></div>
+        <div class="dmbl8"></div>
+          <div class="dmbl9"></div>
+        <div class="dmbl10"></div>
+        <div class="dmbl11"></div>
+        <div class="dmbl12"></div>
+
+      </div>
+    </div>
+  </div>
+  <div class="hanger">
+    <div class="hook" ></div>
+      <div class="grd2"></div>
+    </div>
+  <div class="leg1"><div class="shoe"></div></div>
+  <div class="leg2"><div class="shoe1"></div></div>
+  <div class="thy"></div>
+  <div class="belt"></div>
+  <div class="stomach"></div>
+  <div class="stomach2"></div>
+  <div class="chest"></div>
+  <div class="chest2"></div>
+  <div class="armpit"></div>
+  <div class="hand">
+  <div class="dumbell">
+    <div class="circle1"></div>
+    <div class="circle2"></div>
+    <div class="circle3"></div>
+    </div>
+  
+  </div>
+  <div class="neck"></div>
+  <div class="head">
+    <div class="lip1"></div>
+    <div class="lip2"></div>
+  
+  <div class="hair"></div>
+  </div>
+  </div>
+</div>
+      <div class="box2">
+            <div class="wrapper"><!-- 容器 -->
+        <div class="littleH"><!-- 小黄人 -->
+            <div class="top-canvas"><canvas></canvas></div>
+            <div class="bodyH"><!-- 身体 -->
+            </div>
+            <div class="hair"><!-- 头发 -->
+                <div class="left_hair_one"><div></div></div>
+                <div class="left_hair_two"><div></div></div>
+            </div>
+            <div class="eyes"><!-- 眼睛 -->
+                <div class="leftEye"><!-- 左眼 -->
+                    <div class="left_blackEye">
+                        <div class="left_white"></div>
+                    </div>
+                </div>
+                <div class="rightEye"><!-- 右眼 -->
+                    <div class="right_blackEye">
+                        <div class="right_white"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mouse"><!-- 嘴巴 -->
+                <div class="mouse_shape"></div>
+            </div>
+            <div class="hands"><!-- 双手 -->
+                <div class="leftHand"><div></div></div>
+                <div class="rightHand"><div></div></div>
+            </div>
+            <div class="feet"><!-- 双脚 -->
+                <div class="left_foot"></div>
+                <div class="right_foot"></div>
+            </div>
+            <div class="groundShadow"></div><!-- 脚底阴影 -->
+        </div>
+    </div>
+   </div>
+    <script type="text/javascript" src='./js/effect.js'></script>
+    <script type="text/javascript">
+      effect.init(document.querySelector('canvas'));
+      document.onclick = function() {
+        document.onclick = null;
+        let box2 = document.querySelector('.box2');
+        box2.classList.add('leaveMotion');
+        setTimeout(function(){
+          window.location = './bike.html';
+        },3000);
+      }
+    </script>
+</body>
+</body>
+</html>

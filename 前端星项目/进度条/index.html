@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>进度条</title>
+    <style>
+        section{
+            margin-bottom: 20px;
+        }
+        .bar{
+            width: 150px;
+            height: 15px;
+            background: #ccc;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        .bar .completed{
+            width: 0px;
+            height: 15px;
+            background: #aaa;
+            /*border-radius: 20px;*/
+            transition: width 1s;
+        }
+        .process{
+            position: relative;
+            height: 100px;
+            width: 100px;
+        }
+        .hourglass-top{
+            width: 0;
+            height: 0;
+            padding: 0;
+            border-top: 40px solid #ccc;
+            border-bottom: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+            top: 0;
+        }
+        .hourglass-top-sand{
+            width: 0;
+            height: 0;
+            padding: 0;
+            border-top: 40px solid #aaa;
+            border-bottom: 40px solid transparent;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+            top: -40px;
+            right: -40px;
+            transition-property: border-top-width,border-bottom-width,border-left-width,border-right-width,top,right;
+            transition-duration: 1s;
+        }
+        .hourglass-bottom{
+            padding: 0;
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid #aaa;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+        }
+        .hourglass-bottom-sand{
+            padding: 0;
+            width: 0;
+            height: 0;
+            border-top: 40px solid transparent;
+            border-bottom: 40px solid #ccc;
+            border-right: 40px solid transparent;
+            border-left: 40px solid transparent;
+            position: absolute;
+            top:  -40px;
+            right: -40px;
+            transition-property: border-top-width,border-bottom-width,border-left-width,border-right-width,top,right;
+            transition-duration: 1s;
+         }
+        .btn-group{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .btn{
+            margin-right: 10px;
+            background: #eee;
+            height: 28px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+        .btn:hover{
+            cursor: pointer;
+        }
+        .input-group{
+            margin-bottom: 10px;
+        }
+        input{
+            border-radius: 5px;
+            padding-left: 5px;
+            border: 1px solid #cccccc;
+            height: 25px;
+        }
+        #J_demo2{
+            transition: stroke-dasharray 1s;
+        }
+    </style>
+</head>
+<body>
+    <section class="process"></section>
+    <div class="btn-group">
+        <button class="btn type-select" data-type="hourglass-progress">沙漏进度条</button>
+        <button class="btn type-select" data-type="bar-progress">条形进度条</button>
+        <button class="btn type-select" data-type="ring-progress">圆环进度条</button>
+    </div>
+    <div class="input-group">
+        <input class='progressValue' placeholder="请输入要设置的进度值">
+        <input type="text" class="colorSet" placeholder="背景色(eg:#ccc,red)" data-type="bgColor">
+        <input type="text" class="colorSet" placeholder="进度条色(eg:#ccc,red)" data-type="progressColor">
+    </div>
+    <button class="btn set">设置</button>
+    <p>当前进度：<span class="currentProgress">0</span></p>
+</body>
+</html>
+<script src="./index.js"></script>
+<script>
+    const container = document.querySelector('.process');
+    let progress;
+    let option = {};
+    progress = new ProgressFactory(container,{
+        type : 'bar-progress'});
+    progress.init();
+    //设置进度值，背景色和进度条色
+    document.querySelector('.set').onclick = function() {
+        let value = document.querySelector('.progressValue').value;
+        let bgColor = document.querySelector('input[data-type=bgColor]').value;
+        let progressColor = document.querySelector('input[data-type=progressColor]').value;
+        progress.setProgress(value);
+        // console.log(progress.getProgress());
+        
+        setTimeout(function () {
+            document.querySelector('.currentProgress').innerHTML = progress.getProgress();
+        },1000);
+        //背景颜色和进度条颜色为空时设置默认颜色
+        if (!bgColor){
+            bgColor = '#ccc';
+        }
+        if (!progressColor){
+            progressColor ='#aaa';
+        }
+        progress.setProgressColor(bgColor,progressColor);
+    };
+    //选择进度条类型
+    [...document.querySelectorAll('.type-select')].map((item)=>item.addEventListener('click',function(e){
+        option.type = e.target.dataset.type;
+        progress = new ProgressFactory(container,option);
+        progress.init();
+    }));
+</script>

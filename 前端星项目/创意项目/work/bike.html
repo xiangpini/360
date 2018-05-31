@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>css3制作2016奥运会小人骑自行车动画特效演示_大头网</title>
+
+<link href="./style/bike.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="./style/man.css">
+  <style type="text/css">
+    .box2 {
+        position: absolute;
+        bottom: 63px;
+        left: 128px;
+        transform: scale(0.7);
+        animation: 3s enterMotion linear 1;
+    }
+    /* 进场动画 */
+@-webkit-keyframes enterMotion {
+  0% {
+    bottom: 293px;
+    left: -208px;
+    transform: scale(0.7);
+  }
+  80% {
+    bottom: 63px;
+    left: 128px;
+    transform: scale(0.7);
+  }
+  90% {
+    bottom: 83px;
+    left: 128px;
+    transform: scale(0.7);
+  }
+  100% {
+    bottom: 63px;
+    left: 128px;
+    transform: scale(0.7);
+  }
+}
+
+  </style>
+</head>
+<body>
+<!-- 代码 开始 -->
+
+<div class="bike bikeAni"></div>
+<!-- 代码 结束 -->
+
+<div style="text-align:center;margin:1px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</div>
+      <div class="box2">
+            <div class="wrapper"><!-- 容器 -->
+        <div class="littleH"><!-- 小黄人 -->
+            <div class="top-canvas"><canvas></canvas></div>
+            <div class="bodyH"><!-- 身体 -->
+            </div>
+            <div class="hair"><!-- 头发 -->
+                <div class="left_hair_one"><div></div></div>
+                <div class="left_hair_two"><div></div></div>
+            </div>
+            <div class="eyes"><!-- 眼睛 -->
+                <div class="leftEye"><!-- 左眼 -->
+                    <div class="left_blackEye">
+                        <div class="left_white"></div>
+                    </div>
+                </div>
+                <div class="rightEye"><!-- 右眼 -->
+                    <div class="right_blackEye">
+                        <div class="right_white"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="mouse"><!-- 嘴巴 -->
+                <div class="mouse_shape"></div>
+            </div>
+            <div class="hands"><!-- 双手 -->
+                <div class="leftHand"><div></div></div>
+                <div class="rightHand"><div></div></div>
+            </div>
+            <div class="feet"><!-- 双脚 -->
+                <div class="left_foot"></div>
+                <div class="right_foot"></div>
+            </div>
+            <div class="groundShadow"></div><!-- 脚底阴影 -->
+        </div>
+    </div>
+   </div>
+    <script type="text/javascript" src='./js/effect.js'></script>
+    <script type="text/javascript">
+      effect.init(document.querySelector('canvas'));
+      document.onclick = function() {
+        document.onclick = null;
+        let box2 = document.querySelector('.box2');
+          window.location = './index.html';
+      }
+    </script>
+</body>
+</html>
